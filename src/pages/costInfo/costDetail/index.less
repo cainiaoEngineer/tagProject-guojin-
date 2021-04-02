@@ -1,0 +1,28 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:local(.setWidth90) {
+  width: 95% !important;
+}
+
+:local(.changeBtn) {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.pageSizeText {
+  position: absolute;
+  bottom: 90px;
+}
+:global {
+  .setTableSty {
+    .ant-pro-table-toolbar {
+      padding: 0px !important;
+      margin-bottom: 10px;
+    }
+  }
+}

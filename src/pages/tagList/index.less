@@ -1,0 +1,118 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:local(.setWidth90) {
+  width: 95% !important;
+}
+
+:local(.changeBtn) {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.pageSizeText {
+  position: absolute;
+  bottom: 90px;
+}
+
+:global {
+  .ant-table-small .ant-table-thead > tr > th {
+    background-color: #ebf6ff;
+  }
+}
+
+.formTitle {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.uploadTips {
+  position: absolute;
+  top: 6px;
+  left: 158px;
+  width: 402px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.uploadButton {
+  :global {
+    .ant-row.ant-form-item {
+      margin-top: 20px;
+    }
+  }
+}
+
+.ProTable {
+  :global {
+    .ant-pro-table-search {
+      margin-bottom: 0;
+      padding: 10px 20px;
+    }
+
+    .ant-pro-table-toolbar {
+      height: auto;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      padding-right: 0;
+    }
+    .ant-pro-table-search-option {
+      padding-right: 0 !important;
+      .ant-form-item {
+        margin-bottom: 0;
+      }
+    }
+    .ant-pro-table-search {
+      background: #fafafa;
+    }
+    .ant-picker-input > input {
+      font-size: 13px !important;
+    }
+    .ant-popover-inner-content {
+      padding: 0;
+    }
+    .ant-popover-inner {
+      border-radius: 5px;
+    }
+    .ant-popover-placement-bottom > .ant-popover-content > .ant-popover-arrow {
+      display: none;
+    }
+    .ant-popover-placement-bottom {
+      padding-top: 0;
+      z-index: 100;
+    }
+  }
+}
+
+.buildClient {
+  position: relative;
+  :global {
+    .ant-btn-primary:hover,
+    .ant-btn-primary:focus,
+    .ant-btn-primary {
+      background: #23b04a;
+      border-color: #23b04a;
+      width: 113px;
+      height: 40px;
+      font-size: 16px;
+    }
+    .anticon.anticon-caret-down {
+      float: right;
+      top: 7px;
+      position: relative;
+      left: 10px;
+    }
+    .ant-btn > .anticon + span,
+    .ant-btn > span + .anticon {
+      margin-left: 0;
+    }
+  }
+}
+
+.confirmModal {
+  width: 400px !important;
+  height: 174px !important;
+}

@@ -1,0 +1,28 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:local(.setWidth90) {
+  width: 95% !important;
+}
+
+:local(.changeBtn) {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.confirmModal {
+  :global {
+    .ant-modal-header {
+      background: #ebf6ff;
+    }
+    .ant-modal-title {
+      font-weight: 700;
+      color: #1e5d93;
+    }
+  }
+}

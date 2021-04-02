@@ -1,0 +1,97 @@
+From 657ca42409686f461782ac08dd067effefa24da6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=E6=9D=A8=E4=BA=9A=E8=BE=89?= <mook@foxmail.com>
+Date: Mon, 24 Aug 2020 17:45:01 +0800
+Subject: [PATCH 2/2] =?UTF-8?q?feat(*):=E6=9B=B4=E6=94=B9=E7=94=9F?=
+ =?UTF-8?q?=E4=BA=A7=E7=8E=AF=E5=A2=83=E9=87=8Cconfig.js=E7=9A=84=E8=AF=BB?=
+ =?UTF-8?q?=E5=8F=96=E6=96=B9=E5=BC=8F=EF=BC=8C=E7=9B=B4=E6=8E=A5=E5=9C=A8?=
+ =?UTF-8?q?service.js=E9=87=8C=E8=AF=BB=E5=8F=96=E3=80=82=E5=B0=81?=
+ =?UTF-8?q?=E8=A3=85=E6=88=90=E4=B8=80=E4=B8=AAutils=E5=87=BD=E6=95=B0?=
+ =?UTF-8?q?=EF=BC=8C=E5=9C=A8=E9=87=8C=E9=9D=A2=E5=88=A4=E6=96=AD=E7=94=9F?=
+ =?UTF-8?q?=E4=BA=A7=E6=88=96=E8=80=85=E5=BC=80=E5=8F=91=E7=8E=AF=E5=A2=83?=
+ =?UTF-8?q?=EF=BC=8C=E6=9D=A5=E8=BF=94=E5=9B=9Ebaseurl?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/pages/ListTableList/service.js | 21 +++++++++++----------
+ src/pages/document.ejs             |  9 +++++++++
+ src/utils/testEnv.js               |  5 +++++
+ 3 files changed, 25 insertions(+), 10 deletions(-)
+ create mode 100644 src/utils/testEnv.js
+
+diff --git a/src/pages/ListTableList/service.js b/src/pages/ListTableList/service.js
+index 070da9d..e9788db 100644
+--- a/src/pages/ListTableList/service.js
++++ b/src/pages/ListTableList/service.js
+@@ -1,25 +1,26 @@
+-import request from '@/utils/request';
+-
++import request from '@/utils/request'
++import baseUrl from '@/utils/testEnv'
+ export async function queryRule(params) {
+-  return request('/api/rule', {
++  return request(`${baseUrl}/api/rule`, {
+     params,
+-  });
++  })
+ }
++
+ export async function removeRule(params) {
+-  return request('/api/rule', {
++  return request(`${baseUrl}/api/rule`, {
+     method: 'POST',
+     data: { ...params, method: 'delete' },
+-  });
++  })
+ }
+ export async function addRule(params) {
+-  return request('/api/rule', {
++  return request(`${baseUrl}/api/rule`, {
+     method: 'POST',
+     data: { ...params, method: 'post' },
+-  });
++  })
+ }
+ export async function updateRule(params) {
+-  return request('/api/rule', {
++  return request(`${baseUrl}/api/rule`, {
+     method: 'POST',
+     data: { ...params, method: 'update' },
+-  });
++  })
+ }
+diff --git a/src/pages/document.ejs b/src/pages/document.ejs
+index fc135a1..80400f8 100644
+--- a/src/pages/document.ejs
++++ b/src/pages/document.ejs
+@@ -29,6 +29,15 @@
+     <script src="./config.js"></script>
+     <link rel="icon" href="<%= context.config.publicPath +'favicon.png'%>"
+     type="image/x-icon" />
++    <!-- <script>
++
++      var noGateWay={
++        protocol:'http',
++        ip:'172.22.2.12',
++        port:'4397',
++        ajaxPrefix:'yjbapi'
++      }
++    </script> -->
+   </head>
+   <body>
+     <noscript>Out-of-the-box mid-stage front/design solution!</noscript>
+diff --git a/src/utils/testEnv.js b/src/utils/testEnv.js
+new file mode 100644
+index 0000000..f026d43
+--- /dev/null
++++ b/src/utils/testEnv.js
+@@ -0,0 +1,5 @@
++const { noGateWay } = window
++const baseUrl = noGateWay
++  ? `${noGateWay.protocol}://${noGateWay.ip}:${noGateWay.port}/${noGateWay.ajaxPrefix}`
++  : `` //根据需要填写本地的代理前缀例如：'testApi'
++export default baseUrl
+-- 
+2.27.0.windows.1
+

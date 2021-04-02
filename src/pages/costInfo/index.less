@@ -1,0 +1,61 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:local(.boldFont) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+:local(.cardTitle) {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+:global {
+  .ant-table-small .ant-table-thead > tr > th {
+    background-color: #ebf6ff;
+  }
+  .extraMargin {
+    .ant-card-extra {
+      margin-right: calc(33.33% + 15px);
+    }
+  }
+  .ant-popover-inner,
+  .ant-card-bordered {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  .ant-popover-arrow {
+    background: #fff;
+    box-shadow: none !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #ddd #fff #fff #ddd !important;
+    top: 3px !important;
+    width: 16px;
+    height: 16px;
+  }
+  .titleBlue {
+    .ant-card-type-inner .ant-card-head {
+      background: #3196eb;
+      color: #fff;
+    }
+    .ant-card-bordered {
+      border: 1px solid #3196eb;
+    }
+  }
+  .titleGray {
+    .ant-card-type-inner .ant-card-head {
+      background: #cccccc;
+      color: #fff;
+    }
+  }
+  .ant-card-head-title {
+    font-weight: bold;
+  }
+}
